@@ -26,14 +26,15 @@ restService.post("/search", function(req, res) {
   jsonContent.forEach(obj => {
         if (obj.Country == searchValue)
         {
-          speech = speech + count + ". " + obj.Title + "\n  \n";
           count = count + 1;
+          speech = speech + count + ". " + obj.Title + "\n  \n";
+
         }
       }
   )
-  if (count = 0)
+  if (count == 0)
   {
-    speech = "No articles found for country " + searchValue + " !!!"
+    speech = speech + "No articles found for country " + searchValue + " !!!"
   }
   //speech =
    //   req.body.queryResult &&
