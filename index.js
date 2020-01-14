@@ -25,7 +25,7 @@ restService.post("/echo", function(req, res) {
   jsonContent.forEach(obj => {
         if (obj.AuthorName == searchValue)
         {
-          speech = speech + obj.Title + "\n";
+          speech = speech + obj.Title + "\n  \n";
         }
       }
   )
