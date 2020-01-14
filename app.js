@@ -13,4 +13,4 @@ const bookauthor = [
     { book: 3, author: 'Pqr'}
 ]
 var bookFind = 1;
-console.log(bookauthor[bookFind]);
+console.log(JSON.stringify(bookauthor[bookFind]));

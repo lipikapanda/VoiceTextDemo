@@ -27,7 +27,7 @@ restService.post("/echo", function(req, res) {
       req.body.queryResult &&
       req.body.queryResult.parameters &&
       req.body.queryResult.parameters.echoText
-          ? bookauthor[bookFind]
+          ? JSON.stringify(bookauthor[bookFind])
           : "Seems like some problem. Speak again please...";
 
   var speechResponse = {
