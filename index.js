@@ -22,7 +22,7 @@ var jsonContent = JSON.parse(contents);
 var speech = "";
 
 restService.post("/echo", function(req, res) {
-  const searchValue = Number(req.body.queryResult.parameters.echoText);
+  var searchValue = req.body.queryResult.parameters.echoText;
 
   jsonContent.forEach(obj => {
         if (obj.AuthorName == searchValue)
