@@ -22,7 +22,7 @@ const bookauthor = [
 ]
 
 restService.post("/echo", function(req, res) {
-  var bookFind = req.body.queryResult.parameters.echoText;
+  const bookFind = Number(req.body.queryResult.parameters.echoText);
   var speech =
       req.body.queryResult &&
       req.body.queryResult.parameters &&
