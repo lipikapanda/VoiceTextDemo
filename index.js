@@ -15,19 +15,27 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-const bookauthor = [
-  { book: 1, author: 'Abc'},
-  { book: 2, author: 'Xyz'},
-  { book: 3, author: 'Pqr'}
-]
+var fs = require("fs");
+var contents = fs.readFileSync("Sample.json");
+var jsonContent = JSON.parse(contents);
+
+var speech = "";
 
 restService.post("/echo", function(req, res) {
-  const bookFind = Number(req.body.queryResult.parameters.echoText);
-  var speech =
+  const searchValue = Number(req.body.queryResult.parameters.echoText);
+
+  jsonContent.forEach(obj => {
+        if (obj.AuthorName == searchValue)
+        {
+          speech = speech + obj.Title + "\n";
+        }
+      }
+  )
+  speech =
       req.body.queryResult &&
       req.body.queryResult.parameters &&
       req.body.queryResult.parameters.echoText
-          ? JSON.stringify(bookauthor[bookFind])
+          ? speech
           : "Seems like some problem. Speak again please...";
 
   var speechResponse = {
