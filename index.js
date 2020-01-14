@@ -19,22 +19,28 @@ var fs = require("fs");
 var contents = fs.readFileSync("Sample.json");
 var jsonContent = JSON.parse(contents);
 
-restService.post("/echo", function(req, res) {
-  var searchValue = req.body.queryResult.parameters.echoText;
+restService.post("/search", function(req, res) {
+  var searchValue = req.body.queryResult.parameters.country;
   var speech = "";
+  var count = Number(0);
   jsonContent.forEach(obj => {
-        if (obj.AuthorName == searchValue)
+        if (obj.Country == searchValue)
         {
-          speech = speech + obj.Title + "\n  \n";
+          speech = speech + count + ". " + obj.Title + "\n  \n";
+          count = count + 1;
         }
       }
   )
-  speech =
-      req.body.queryResult &&
-      req.body.queryResult.parameters &&
-      req.body.queryResult.parameters.echoText
-          ? speech
-          : "Seems like some problem. Speak again please...";
+  if (count = 0)
+  {
+    speech = "No articles found for country " + searchValue + " !!!"
+  }
+  //speech =
+   //   req.body.queryResult &&
+   //   req.body.queryResult.parameters &&
+   //   req.body.queryResult.parameters.country
+   //       ? speech
+   //       : "Seems like some problem. Speak again please...";
 
   var speechResponse = {
     google: {
