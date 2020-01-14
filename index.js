@@ -16,9 +16,9 @@ restService.use(
 restService.use(bodyParser.json());
 
 const bookauthor = [
-  { book: 'Harry Potter', author: 'Abc'},
-  { book: 'Alchemist', author: 'Xyz'},
-  { book: 'You Can Win', author: 'Pqr'}
+  { book: 1, author: 'Abc'},
+  { book: 2, author: 'Xyz'},
+  { book: 3, author: 'Pqr'}
 ]
 
 restService.post("/echo", function(req, res) {
