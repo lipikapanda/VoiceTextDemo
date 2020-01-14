@@ -19,11 +19,9 @@ var fs = require("fs");
 var contents = fs.readFileSync("Sample.json");
 var jsonContent = JSON.parse(contents);
 
-var speech = "";
-
 restService.post("/echo", function(req, res) {
   var searchValue = req.body.queryResult.parameters.echoText;
-
+  var speech = "";
   jsonContent.forEach(obj => {
         if (obj.AuthorName == searchValue)
         {
