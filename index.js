@@ -36,6 +36,10 @@ restService.post("/search", function(req, res) {
   {
     speech = speech + "No articles found for country " + searchValue + " !!!"
   }
+  else
+  {
+    speech = "Here are the titles of articles found for country  " + searchValue + "." + " " + speech
+  }
   //speech =
    //   req.body.queryResult &&
    //   req.body.queryResult.parameters &&
