@@ -38,7 +38,7 @@ restService.post("/search", function(req, res) {
   }
   else
   {
-    speech = "Here are the titles of articles found for country  " + searchValue + "." + " " + speech
+    speech = "Here are the titles of articles found for country  " + searchValue + ". \n  \n" + speech
   }
   //speech =
    //   req.body.queryResult &&
